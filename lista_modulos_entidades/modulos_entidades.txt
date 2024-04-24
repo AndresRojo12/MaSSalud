@@ -1,0 +1,63 @@
+Lista de modulos
+
+Usuarios
+  registro
+    name
+    lastname
+    email
+    password
+    rol
+  iniciar sesion  
+    email
+    password
+  rol
+    administrador
+      perfil de usuario(frontend)
+    paciente
+      id
+      id_eps
+      name
+      lastname
+      cedula
+      genero
+      telefono
+      email
+      perfil de usuario(frontend)
+    doctor
+      id
+      name
+      lastname
+      id_especialidad
+      telefono
+      perfil de usuario(frontend)
+
+especialidades
+  id
+  name
+  description
+
+citas medicas
+  id
+  id_doctor
+  id_paciente
+  id_eps
+  id_especialidad
+  telefono
+  dirección
+  email
+  description
+  fecha_creación
+
+solicitud de medicamentos
+id
+id_paciente
+id_doctor
+id_eps
+cedula
+telefono
+dirección
+email
+description
+cantidad
+
+
