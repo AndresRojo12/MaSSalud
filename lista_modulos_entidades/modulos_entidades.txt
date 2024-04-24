@@ -2,11 +2,20 @@ Lista de modulos
 
 Usuarios
   registro
+    id
     name
     lastname
     email
     password
     rol
+    active(boolean)
+    created_by[user_id]'*'
+    created_at'*'
+    updated_by[user_id]
+    updated_at
+      registrarUsuarios()
+      listarUsuarios
+      actualizarUsuarios
   iniciar sesion  
     email
     password
@@ -22,6 +31,10 @@ Usuarios
       genero
       telefono
       email
+      created_by[user_id]'*'
+      created_at'*'
+      updated_by[user_id]
+      updated_at
       perfil de usuario(frontend)
     doctor
       id
@@ -29,12 +42,32 @@ Usuarios
       lastname
       id_especialidad
       telefono
+      created_by[user_id]'*'
+      created_at'*'
+      updated_by[user_id]
+      updated_at
       perfil de usuario(frontend)
 
 especialidades
   id
   name
   description
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
+
+eps 
+  id
+  name
+  description
+  address
+  telefono
+  email
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
 
 citas medicas
   id
@@ -47,17 +80,50 @@ citas medicas
   email
   description
   fecha_creación
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
 
 solicitud de medicamentos
-id
-id_paciente
-id_doctor
-id_eps
-cedula
-telefono
-dirección
-email
-description
-cantidad
+  id
+  id_paciente
+  id_doctor
+  id_eps
+  cedula
+  telefono
+  dirección
+  email
+  description
+  cantidad
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
 
+pais
+  id
+  name
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
+
+departamento
+  id
+  pais_id
+  name
+  created_by[user_id]'*'
+  created_at'*'
+  updated_by[user_id]
+  updated_at
+
+  ciudad
+    id
+    departamento_id
+    name
+    created_by[user_id]'*'
+    created_at'*'
+    updated_by[user_id]
+    updated_at
 
