@@ -16,7 +16,7 @@ Usuarios
       registrarUsuarios()
       listarUsuarios
       actualizarUsuarios
-  iniciar sesion  
+  iniciar sesion
     email
     password
   rol
@@ -30,7 +30,6 @@ Usuarios
       cedula
       genero
       telefono
-      email
       created_by[user_id]'*'
       created_at'*'
       updated_by[user_id]
@@ -57,7 +56,7 @@ especialidades
   updated_by[user_id]
   updated_at
 
-eps 
+eps
   id
   name
   description
