@@ -13,7 +13,7 @@ passport.authenticate('local', {session:false}),
     const user = req.user;
     const payload = {
       sub:user.id,
-      role:user.name
+      role:user.role
     }
     const token = jwt.sign(payload, config.jwtSecret)
     res.json({

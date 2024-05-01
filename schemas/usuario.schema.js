@@ -12,6 +12,7 @@ const phone = Joi.string();
 const eps = Joi.string().max(100);
 const email = Joi.string().email().max(100);
 const password = Joi.string().max(100);
+const role = Joi.string().max(100);
 const created_by = Joi.number().integer();
 const created_at = Joi.date();
 const updated_by = Joi.number().integer();
@@ -31,6 +32,7 @@ createUsuariosSchema = Joi.object({
   phone:phone.required(),
   eps:eps.required(),
   email:email.required(),
+  role:role.required(),
   password: password.required(),
   created_by: created_by,
   created_at: created_at,

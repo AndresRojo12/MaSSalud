@@ -72,6 +72,11 @@ const UsuarioSchema = {
     type:DataTypes.STRING,
   },
 
+  role: {
+    allowNull:false,
+    type:DataTypes.STRING,
+  },
+
   createdBy: {
     type: DataTypes.INTEGER,
     field: 'create_by',
