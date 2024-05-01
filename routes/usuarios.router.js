@@ -33,4 +33,15 @@ async (req, res, next) => {
   }
 })
 
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const usuarios = await service.delete(id);
+    res.json(usuarios);
+
+  } catch (error) {
+    next(error)
+  }
+})
+
 module.exports = router
