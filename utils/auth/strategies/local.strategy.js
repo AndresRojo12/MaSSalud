@@ -5,7 +5,10 @@ const servicioUsuario = require('./../../../services/usuario.service');
 
 const servicio = new servicioUsuario();
 
-const LocalStrategy = new Strategy(
+const LocalStrategy = new Strategy({
+  usernameField: 'email',
+  passwordField: 'password'
+},
 async (email, password, done) => {
   try {
     const usuario = await servicio.findByEmail(email);
@@ -16,6 +19,7 @@ async (email, password, done) => {
     if(!isMatch){
       done(boom.unauthorized(),false);
     }
+    delete usuario.dataValues.password;
     done(null, usuario);
   } catch (error) {
     done(error, false);
