@@ -10,6 +10,8 @@ const port = process.env.PORT || 3000
 app.use(express.json());
 app.use(cors());
 
+require('./utils/auth');
+
 app.get('/', (req, res) => {
   res.send('server express');
 })
