@@ -1,6 +1,7 @@
 const boom = require('@hapi/boom');
 const bcrypt = require('bcrypt');
 const capitalCase  = require('../utils/transform/text');
+const { sendConfirmationEmail }= require('../utils/auth/strategies/email');
 const { models } = require('./../libs/sequelize');
 
 class UsuarioService {
@@ -21,6 +22,7 @@ class UsuarioService {
       password: hash
     });
     delete newUser.dataValues.password
+    await sendConfirmationEmail(newUser.email, newUser.name);
     return newUser;
   }
 
