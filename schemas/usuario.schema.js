@@ -4,6 +4,7 @@ const id = Joi.number().integer();
 const name = Joi.string().max(100);
 const lastName = Joi.string().max(100);
 const secondSurname = Joi.string().max(100);
+const documentType = Joi.string().max(200);
 const identificationCard = Joi.number().integer();
 const expeditionDate = Joi.date();
 const birthdate = Joi.date();
@@ -25,6 +26,7 @@ createUsuariosSchema = Joi.object({
   name:name.required(),
   lastName:lastName.required(),
   secondSurname:secondSurname.required(),
+  documentType:documentType.required(),
   identificationCard:identificationCard.required(),
   expeditionDate:expeditionDate.required(),
   birthdate:birthdate.required(),
@@ -32,7 +34,7 @@ createUsuariosSchema = Joi.object({
   phone:phone.required(),
   eps:eps.required(),
   email:email.required(),
-  role:role.required(),
+  role:role,
   password: password.required(),
   created_by: created_by,
   created_at: created_at,
