@@ -27,6 +27,12 @@ const UsuarioSchema = {
     field: 'second_surname'
   },
 
+  documentType: {
+    allowNull:false,
+    type:DataTypes.STRING,
+    field:'document_type'
+  },
+
   identificationCard: {
     allowNull:false,
     type:DataTypes.INTEGER,
@@ -59,7 +65,7 @@ const UsuarioSchema = {
 
   eps: {
     allowNull:false,
-    type:DataTypes.STRING,
+    type:DataTypes.STRING
   },
 
   email:{
@@ -75,6 +81,7 @@ const UsuarioSchema = {
   role: {
     allowNull:false,
     type:DataTypes.STRING,
+    defaultValue:'paciente'
   },
 
   createdBy: {
