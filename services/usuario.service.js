@@ -1,14 +1,23 @@
 const boom = require('@hapi/boom');
 const bcrypt = require('bcrypt');
-
+const capitalCase  = require('../utils/transform/text');
 const { models } = require('./../libs/sequelize');
 
 class UsuarioService {
 
   async create(data) {
+
     const hash = await bcrypt.hash(data.password, 10);
+    const capitalizedData = {};
+    for (const key in data) {
+      if (typeof data[key] === 'string') {
+        capitalizedData[key] = capitalCase(data[key]);
+      } else {
+        capitalizedData[key] = data[key];
+      }
+    }
     const newUser = await models.Usuario.create({
-      ...data,
+      ...capitalizedData,
       password: hash
     });
     delete newUser.dataValues.password
