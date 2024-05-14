@@ -16,8 +16,18 @@ router.get('/', async(req, res,next) => {
  }
 });
 
-router.get('/:id', (req,res) => {
-  console.log();
+router.get('/:id',validatorHandler(getUsuariosSchema, 'params'),
+  async (req,res,next)=> {
+    try {
+      const { id } = req.params;
+      const body = req.body;
+
+      const usuarios = await service.findOne(id, body);
+      res.json(usuarios);
+
+    } catch (error) {
+      next(error);
+    }
 });
 
 router.post('/',
@@ -32,6 +42,21 @@ async (req, res, next) => {
     next(error)
   }
 })
+
+router.patch('/:id', validatorHandler(getUsuariosSchema, 'params'),
+validatorHandler(updateUsuariosSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const body = req.body;
+      const usuarios = await service.update(id, body);
+
+      res.json(usuarios);
+    } catch (error) {
+      next(error)
+    }
+  }
+)
 
 router.delete('/:id', async (req, res, next) => {
   try {
