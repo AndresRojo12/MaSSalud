@@ -47,8 +47,20 @@ class UsuarioService {
   }
 
   async update(id, changes) {
+    const capitalizedData = {};
+    for (const key in changes) {
+      if (typeof changes[key] === 'string') {
+        capitalizedData[key] = capitalCase(changes[key]);
+      } else {
+        capitalizedData[key] = changes[key];
+      }
+    }
     const usuario = await this.findOne(id);
-    const rta = await usuario.update(changes);
+    const rta = await usuario.update({
+      ...capitalizedData,
+      changes
+
+    });
     return rta;
   }
 
