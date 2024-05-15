@@ -11,60 +11,60 @@ const UsuarioSchema = {
   },
 
   name: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
   },
 
   lastName: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
     field: 'last_name',
   },
 
   secondSurname: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
     field: 'second_surname'
   },
 
   documentType: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
     field:'document_type'
   },
 
   identificationCard: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.INTEGER,
     field: 'identification_card',
     unique:true
   },
 
   expeditionDate: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.DATE,
     field: 'expedition_date'
   },
 
   birthdate: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.DATE,
   },
 
   gender: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
 
   },
 
   phone: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING,
     unique: true
   },
 
   eps: {
-    allowNull:false,
+    allowNull:true,
     type:DataTypes.STRING
   },
 
