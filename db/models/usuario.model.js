@@ -134,8 +134,11 @@ const UsuarioSchema = {
 }
 
 class Usuario extends Model {
-  static associate() {
-
+  static associate(models) {
+    this.hasOne(models.CitaMedica, {
+      as: 'cita_medica',
+      foreignKey: 'userId'
+    })
   }
 
   static config(sequelize) {
