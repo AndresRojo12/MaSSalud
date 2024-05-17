@@ -9,11 +9,14 @@ export default defineNuxtConfig({
     transpile: ["vuetify", "vuejs3-datepicker"],
   },
   pinia: {
-    autoImports: [
-      // automatically imports `defineStore`
-      'defineStore', // import { defineStore } from 'pinia'
-      ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+    stores: [
+      {name: 'auth', path: '~/store/auth.js'},
     ],
+    // autoImports: [
+    //   // automatically imports `defineStore`
+    //   'defineStore', // import { defineStore } from 'pinia'
+    //   ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+    // ],
   },
   runtimeConfig: {
     public: {
