@@ -1,15 +1,22 @@
 <template>
-  <div>
-    <v-card
-      class="mx-auto pa-12 pb-8"
-      style="margin-top: 60px"
-      elevation="8"
-      max-width="380"
+  <div style="display: flex;
+    margin-top: 5%;">
+    <v-img src="../../util/salud.png" style="max-width: 65%">
+      <template #sources>
+        <source srcset="../../util/salud.png" />
+      </template>
+    </v-img>
+    <v-card style="width:50%;
+      height:80vh;"
+      class="mx-auto pa-12 pb-11"
+      elevation="4"
+      max-width="400"
       rounded="lg"
     >
       <div
         class="text-subtitle-1 text-medium-emphasis"
-        style="text-align: center"
+        style="text-align: center;
+        margin-top: 5%;"
       >
         Inicio de sesión
       </div>
@@ -17,7 +24,7 @@
       <v-text-field
         v-model="email"
         density="compact"
-        style="margin-top: 20px"
+        style="margin-top:20%"
         placeholder="Correo electronico"
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
@@ -32,7 +39,8 @@
           class="text-caption text-decoration-none text-blue"
           href="#"
           rel="noopener noreferrer"
-          target="_blank" @click.prevent="recuperarContrasena"
+          target="_blank"
+          @click.prevent="recuperarContrasena"
         >
           olvido su contraseña?</a
         >
@@ -59,6 +67,21 @@
       >
         Iniciar
       </v-btn>
+      <v-card-text class="text-center">
+        <a
+        class="text-blue text-decoration-none"
+        @click.prevent="registrarse"
+        href="#"
+        rel="noopener noreferrer"
+        target="_blank"
+        >
+        Registrarse
+        <v-icon
+        icon="mdi-chevron-right"
+        @click.prevent="registrarse"
+        ></v-icon>
+        </a>
+      </v-card-text>
     </v-card>
   </div>
 </template>
@@ -102,6 +125,10 @@ const login = async () => {
 };
 
 const recuperarContrasena = () => {
-  router.push('/login/recuperar_contrasena');
-}
+  router.push("/login/recuperar_contrasena");
+};
+
+const registrarse = () => {
+  router.push("/registro/crear");
+};
 </script>
