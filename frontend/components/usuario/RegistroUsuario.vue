@@ -169,6 +169,7 @@
 </template>
 
 <script setup>
+import { useRuntimeConfig } from '#app';
 const CONFIG = useRuntimeConfig();
 import { ref } from "vue";
 import Swal from "sweetalert2";
@@ -213,7 +214,7 @@ const password = ref("");
 
 const registrarUsuario = async () => {
   const { data, error } = await useFetch(
-    `${CONFIG.public.API_BASE_URL}usuarios/`,
+    `${CONFIG.public.apiURL}usuarios/`,
     {
       method: "POST",
       body: {

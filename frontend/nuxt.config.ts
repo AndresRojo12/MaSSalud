@@ -23,8 +23,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      API_BASE_URL: process.env.API_BASE_URL
-    },
-    private: process.env.API_URL
+      apiURL: process.env.NODE_ENV === 'production' ? process.env.API_URL : process.env.API_BASE_URL,
+    }
   }
 });

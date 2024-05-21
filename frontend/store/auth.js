@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { storeToken, getToken, removeToken, storeUser, getUser, removeUser } from '@/util/token.js';
 
+
 export const useAuth = defineStore('auth', {
   state: () => {
     return {
