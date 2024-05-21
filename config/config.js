@@ -15,7 +15,8 @@ const config = {
   emailAdmin: process.env.EMAIL_ADMIN,
   AdminPassword: process.env.ADMIN_PASSWORD,
   passwordAdmin: process.env.PASSWORD_ADMIN,
-  credentialCorreo: process.env.CREDENTIAL_CORREO
+  credentialCorreo: process.env.CREDENTIAL_CORREO,
+  databaseUrl:process.env.DATABASE_URL
 }
 
 // config/config.js
