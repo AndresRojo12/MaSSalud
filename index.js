@@ -21,7 +21,7 @@ const nuxtDistPath = path.join(__dirname, './frontend/dist');
 app.use(express.static(nuxtDistPath));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(nuxtDistPath, 'index.html'));
+  res.sendFile(path.join(nuxtDistPath, '/frontend/dist/index.html'));
 });
 
 routerApi(app);
