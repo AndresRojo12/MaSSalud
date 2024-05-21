@@ -44,7 +44,7 @@ const CitaSchema = {
     type:DataTypes.STRING,
     field: 'working_day'
   },
-  
+
   date: {
     allowNull:true,
     type:DataTypes.DATEONLY,

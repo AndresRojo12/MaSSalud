@@ -1,5 +1,6 @@
 const express = require('express');
 const CitaService = require('../services/cita.service');
+const authenticate = require('./../middlewares/authenticate');
 const validatorHandler = require('./../middlewares/validator.handler');
 
 const { createCitasSchema, getCitasSchema, updateCitasSchema } = require('./../schemas/cita.schema');
@@ -30,12 +31,13 @@ router.get('/:id',validatorHandler(getCitasSchema, 'params'),
     }
 });
 
-router.post('/',
+router.post('/',authenticate,
 validatorHandler(createCitasSchema, 'body'),
 async (req, res, next) => {
   try {
     const body = req.body
-    const cita = await service.create(body);
+    const userId = req.userId
+    const cita = await service.create(body, userId);
     res.json(cita);
 
   } catch (error) {

@@ -7,7 +7,7 @@ const doctor = Joi.string().max(200);
 const schedule= Joi.string().max(200);
 const workingDay = Joi.string().max(200);
 const date = Joi.date();
-const hour= Joi.string().regex(/^([01]\d|2[0-3]):([0-5]\d):([0-5]\d)$/);
+const hour= Joi.string()
 const created_by = Joi.number().integer();
 const created_at = Joi.date();
 const updated_by = Joi.number().integer();
@@ -17,7 +17,7 @@ const deleted_by = Joi.number().integer();
 const deleted_at = Joi.date();
 
 createCitasSchema = Joi.object({
-  userId:userId.required(),
+  userId:userId,
   specialty:specialty.required(),
   date:date.required(),
   doctor:doctor.required(),

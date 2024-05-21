@@ -14,7 +14,8 @@ const config = {
   emailSuperAdmin: process.env.EMAIL_SUPER_ADMIN,
   emailAdmin: process.env.EMAIL_ADMIN,
   AdminPassword: process.env.ADMIN_PASSWORD,
-  passwordAdmin: process.env.PASSWORD_ADMIN
+  passwordAdmin: process.env.PASSWORD_ADMIN,
+  credentialCorreo: process.env.CREDENTIAL_CORREO
 }
 
 module.exports = { config };

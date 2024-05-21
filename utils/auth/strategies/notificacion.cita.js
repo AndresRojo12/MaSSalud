@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 const { config } = require('../../../config/config');
 
-async function sendConfirmationEmail(email, name) {
+
+async function sendConfirmationEmail(email, name, appointmentTime, doctorName, createdBy) {
   try {
     let transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
@@ -11,18 +12,19 @@ async function sendConfirmationEmail(email, name) {
     });
 
     const htmlBody = `
-    <p>¡Hola ${name}!</p>
-    <p>Te has registrado con éxito en nuestro sistema.</p>
-    <p>Por favor, haz clic en el siguiente botón para confirmar tu registro:</p>
-    <a href="http://localhost:3000/paciente/inicio" style="display: inline-block; background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;">Aceptar</a>
-`;
-
+      <p>¡Hola ${name}!</p>
+      <p>Has solicitado una cita médica.</p>
+      <p><strong>Detalles de la cita:</strong></p>
+      <p>Hora de la cita: ${appointmentTime}</p>
+      <p>Doctor: ${doctorName}</p>
+      <p>Cita creada por: ${createdBy}</p>
+    `;
 
     let info = await transporter.sendMail({
       from: config.emailAdmin,
       to: email,
-      subject: "Confirmación de registro exitoso",
-      text: `¡Hola ${name}! Te has registrado con éxito en nuestro sistema.`,
+      subject: "Agenda tu cita",
+      text: `¡Hola ${name}! Has solicitado una cita médica.\nHora de la cita: ${appointmentTime}\nDoctor: ${doctorName}\nCita creada por: ${createdBy}`,
       html: htmlBody,
     });
 

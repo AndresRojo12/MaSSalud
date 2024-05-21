@@ -1,12 +1,12 @@
 const boom = require('@hapi/boom');
 //const bcrypt = require('bcrypt');
 const capitalCase  = require('../utils/transform/text');
-//const { sendConfirmationEmail }= require('../utils/auth/strategies/email');
+const { sendConfirmationEmail }= require('../utils/auth/strategies/notificacion.cita');
 const { models } = require('./../libs/sequelize');
 
 class CitaService {
 
-  async create(data) {
+  async create(data, userId) {
 
     const capitalizedData = {};
     for (const key in data) {
@@ -18,8 +18,17 @@ class CitaService {
     }
     const newCita = await models.CitaMedica.create({
       ...capitalizedData,
+      userId,
     });
-    //await sendConfirmationEmail(newUser.email, newUser.name);
+    const user = await models.Usuario.findByPk(userId);
+
+    await sendConfirmationEmail(
+      user.email,
+      user.name,
+      newCita.hour,
+      newCita.doctor,
+      user.name
+    );
     return newCita;
   }
 

@@ -1,9 +1,28 @@
 <template>
   <div>
-     <v-btn @click.prevent="inicio" style="margin-left: 90%;
-     margin-top: 1%;
-     background-color: aqua; "> Ir a Inicio </v-btn>
-    <div style="display: flex; justify-content: center">
+    <v-toolbar style="background-color: aqua">
+      <v-divider class="ms-3" inset vertical></v-divider>
+
+      <v-toolbar-title
+        style="
+          margin-left: 45%;
+          font-size:25px;
+          font-family: &quot;Times New Roman&quot;, Times, serif;
+        "
+        >REGISTRATE</v-toolbar-title
+      >
+
+      <v-spacer></v-spacer>
+
+      <v-spacer></v-spacer>
+
+      <v-toolbar-items>
+        <v-divider vertical></v-divider>
+
+        <v-btn @click="inicio" variant="text">Ir a Inicio</v-btn>
+      </v-toolbar-items>
+    </v-toolbar>
+    <div style="display: flex;margin-top:1%; justify-content: center">
       <v-img
         src="../../util/article_7049_cover_es_ES.png"
         style="max-width: 40%;
@@ -14,7 +33,8 @@
         </template>
       </v-img>
       <v-form style="max-width: 45%">
-        <h1 style="text-align: center">Registro</h1>
+        <h1 style="text-align: center;
+        font-family: 'Times New Roman', Times, serif;">Registro</h1>
         <v-row>
           <v-col cols="12" md="4" style="margin-top: 5%">
             <v-text-field
@@ -208,19 +228,16 @@ const registrarUsuario = async () => {
         eps: ep.value,
         email: email.value,
         password: password.value,
-        //role: role.value,
       },
     },
   );
   if (data.value != null) {
     Swal.fire({
       title: "Usuario registrado con exito!",
-      //text: `${status.value}`,
       icon: "success",
       confirmButtonText: "Accept",
     });
-    // Limpia el campo 'name' después de una creación exitosa
-    //status.value = '';
+
     name.value = "";
     lastName.value = "";
     secondSurname.value = "";
@@ -233,7 +250,7 @@ const registrarUsuario = async () => {
     ep.value = "";
     email.value = "";
     password.value = "";
-    //role.value = '';
+    
   } else {
     Swal.fire({
       title: "Ops!",
