@@ -151,6 +151,7 @@
               color="primary"
               label="Contraseña"
               variant="underlined"
+              type="password"
             ></v-text-field>
           </v-col>
         </v-row>
@@ -250,7 +251,7 @@ const registrarUsuario = async () => {
     ep.value = "";
     email.value = "";
     password.value = "";
-    
+
   } else {
     Swal.fire({
       title: "Ops!",
