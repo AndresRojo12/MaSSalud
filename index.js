@@ -9,7 +9,19 @@ const app = express();
 
 const port = process.env.PORT || 3000
 app.use(express.json());
-app.use(cors());
+
+const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
+
+const options = {
+  origin: (origin, callback) => {
+    if(whitelist.includes(origin)) {
+      callback(null, true);
+    }else {
+      callback(new Error('no permitido'));
+    }
+  }
+}
+app.use(cors(options));
 
 require('./utils/auth');
 
