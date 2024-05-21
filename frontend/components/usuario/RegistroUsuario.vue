@@ -169,7 +169,7 @@
 </template>
 
 <script setup>
-import { useRuntimeConfig } from '#app';
+//import { useRuntimeConfig } from '#app';
 const CONFIG = useRuntimeConfig();
 console.log('API Base URL:', CONFIG.public.API_BASE_URL);
 
