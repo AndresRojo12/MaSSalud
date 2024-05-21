@@ -1,6 +1,7 @@
 const express = require('express');
 const cors  = require('cors');
 const routerApi = require('./routes');
+const path = require('path');
 
 const { logError, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler');
 
@@ -15,6 +16,13 @@ require('./utils/auth');
 app.get('/', (req, res) => {
   res.send('server express');
 })
+
+const nuxtDistPath = path.join(__dirname, './frontend/dist');
+app.use(express.static(nuxtDistPath));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(nuxtDistPath, 'index.html'));
+});
 
 routerApi(app);
 app.use(logError);

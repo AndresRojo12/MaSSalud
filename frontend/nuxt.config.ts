@@ -8,6 +8,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify", "vuejs3-datepicker"],
   },
+  generate: {
+    dir: 'dist'
+  },
   pinia: {
     stores: [
       {name: 'auth', path: '~/store/auth.js'},
