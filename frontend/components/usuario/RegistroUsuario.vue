@@ -171,6 +171,8 @@
 <script setup>
 import { useRuntimeConfig } from '#app';
 const CONFIG = useRuntimeConfig();
+console.log('API Base URL:', CONFIG.public.API_BASE_URL);
+
 import { ref } from "vue";
 import Swal from "sweetalert2";
 
