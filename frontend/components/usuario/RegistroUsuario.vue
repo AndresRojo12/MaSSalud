@@ -214,7 +214,7 @@ const password = ref("");
 
 const registrarUsuario = async () => {
   const { data, error } = await useFetch(
-    `${CONFIG.public.apiURL}/usuarios/`,
+    `${CONFIG.public.API_URL}/usuarios/`,
     {
       method: "POST",
       body: {
