@@ -7,9 +7,9 @@
     "dev": "nodemon index.js",
     "start": "node index.js",
     "lint": "eslint",
-    "migrations:generate": "migration:generate --name",
-    "migrations:run": "db:migrate",
-    "migrations:revert": "db:undo"
+    "migrations:generate": "sequelize-cli migration:generate --name",
+    "migrations:run": "sequelize-cli db:migrate",
+    "migrations:revert": "sequelize-cli db:undo"
   },
   "repository": {
     "type": "git",
