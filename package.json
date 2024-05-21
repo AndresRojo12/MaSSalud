@@ -8,8 +8,8 @@
     "start": "node index.js",
     "lint": "eslint",
     "migrations:generate": "sequelize-cli migration:generate --name",
-    "migrations:run": "db:migrate",
-    "migrations:revert": "sequelize-cli db:undo"
+    "migrations:run": "node_modules/.bin/sequelize-cli db:migrate",
+    "migrations:revert": "node_modules/.bin/sequelize-cli db:undo"
   },
   "repository": {
     "type": "git",
