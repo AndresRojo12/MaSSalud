@@ -10,7 +10,7 @@ const app = express();
 const port = process.env.PORT || 3000
 app.use(express.json());
 
-const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
+const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com/'];
 
 const options = {
   origin: (origin, callback) => {
