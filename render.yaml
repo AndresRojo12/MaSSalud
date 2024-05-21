@@ -8,7 +8,5 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-      - key: postgres://salud:FGJ20p7SeIPnf15nRXc9jO4jRwbxhMR6@dpg-cp6f906ct0pc7392ch40-a/mas_salud
-        fromDatabase:
-          name: mas_salud
-          property: connectionString
+      - key: DATABASE_URL
+        value: postgres://salud:FGJ20p7SeIPnf15nRXc9jO4jRwbxhMR6@dpg-cp6f906ct0pc7392ch40-a/mas_salud

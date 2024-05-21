@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { config } = require('./../config/config');
+const { config } = require('./config');
 
 const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
@@ -12,7 +12,7 @@ module.exports = {
     dialect: 'postgres',
   },
   production: {
-    url: process.env.DATABASE_URL,
+    url: config.databaseUrl || URI,
     dialect: 'postgres',
     dialectOptions: {
       ssl: {
