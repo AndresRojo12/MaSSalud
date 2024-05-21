@@ -13,9 +13,9 @@ app.use(cors());
 
 require('./utils/auth');
 
-app.get('/', (req, res) => {
-  res.send('server express');
-})
+// app.get('/', (req, res) => {
+//   res.send('server express');
+// })
 
 const nuxtDistPath = path.join(__dirname, './frontend/dist');
 app.use(express.static(nuxtDistPath));
