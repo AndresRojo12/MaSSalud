@@ -16,29 +16,7 @@ const config = {
   AdminPassword: process.env.ADMIN_PASSWORD,
   passwordAdmin: process.env.PASSWORD_ADMIN,
   credentialCorreo: process.env.CREDENTIAL_CORREO,
-  databaseUrl:process.env.DATABASE_URL
-}
-
-// config/config.js
-module.exports = {
-  development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    dialect: 'postgres',
-  },
-  production: {
-    use_env_variable:'postgres://salud:FGJ20p7SeIPnf15nRXc9jO4jRwbxhMR6@dpg-cp6f906ct0pc7392ch40-a/mas_salud',
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false, // solo si tu base de datos requiere SSL
-      },
-    },
-  },
+  databaseUrl: process.env.DATABASE_URL,
 };
-
 
 module.exports = { config };
