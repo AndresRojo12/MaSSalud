@@ -170,10 +170,7 @@
 
 <script setup>
 import { useRuntimeConfig, useFetch } from '#app';
-// const config = useRuntimeConfig();
-// const apiUrl = config.public.apiUrl;
 const CONFIG = useRuntimeConfig();
-console.log('API Base URL:', CONFIG.public.API_BASE_URL);
 
 import { ref } from "vue";
 import Swal from "sweetalert2";
