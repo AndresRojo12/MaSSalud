@@ -15,7 +15,7 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Configuración de CORS
-const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
+const whitelist = ['https://massalud.onrender.com'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (!origin || whitelist.includes(origin)) {
