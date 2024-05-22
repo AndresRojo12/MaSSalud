@@ -1,8 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const routerApi = require('./routes');
 const path = require('path');
+const dotenv = require('dotenv');
 const { logError, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/errorHandler');
+const routerApi = require('./routes');
+require('./utils/auth'); // Asegúrate de que este archivo existe y se carga correctamente
+
+dotenv.config(); // Cargar variables de entorno desde el archivo .env
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -10,7 +14,7 @@ const port = process.env.PORT || 3000;
 // Middleware para parsear JSON
 app.use(express.json());
 
-//Configuración de CORS
+// Configuración de CORS
 const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -24,13 +28,11 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-// Autenticación
-require('./utils/auth');
-
-// Servir archivos estáticos de la aplicación frontend
+// Servir archivos estáticos de la aplicación frontend (Nuxt.js)
 const nuxtDistPath = path.join(__dirname, './frontend/dist');
 app.use(express.static(nuxtDistPath));
 
+// Ruta para servir el archivo HTML principal de la aplicación frontend
 app.get('*', (req, res) => {
   res.sendFile(path.join(nuxtDistPath, 'index.html'));
 });
