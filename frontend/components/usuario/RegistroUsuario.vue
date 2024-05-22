@@ -170,8 +170,8 @@
 
 <script setup>
 import { useRuntimeConfig, useFetch } from '#app';
-const config = useRuntimeConfig();
-const apiUrl = config.public.apiUrl;
+// const config = useRuntimeConfig();
+// const apiUrl = config.public.apiUrl;
 const CONFIG = useRuntimeConfig();
 console.log('API Base URL:', CONFIG.public.API_BASE_URL);
 
@@ -219,7 +219,7 @@ const password = ref("");
 const registrarUsuario = async () => {
   //console.log('API Base URL in request:', `${CONFIG.public.API_BASE_URL}usuarios/`);
   const { data, error } = await useFetch(
-    `${apiUrl}usuarios/`,
+    `${CONFIG.public.API_BASE_URL}usuarios/`,
     {
       method: "POST",
       body: {

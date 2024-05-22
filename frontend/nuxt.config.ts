@@ -23,7 +23,7 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiUrl: process.env.API_BASE_URL || 'https://massalud.onrender.com/api/v1'
+      API_BASE_URL: process.env.API_BASE_URL
     }
   }
 });

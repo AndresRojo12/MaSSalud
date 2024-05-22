@@ -17,7 +17,7 @@ const config = {
   passwordAdmin: process.env.PASSWORD_ADMIN,
   credentialCorreo: process.env.CREDENTIAL_CORREO,
   databaseUrl: process.env.DATABASE_URL,
-  apiBaseUrl: process.env.API_BASE_URL
+  //apiBaseUrl: process.env.API_BASE_URL
 };
 
 module.exports = { config };
