@@ -214,10 +214,11 @@ const email = ref("");
 const password = ref("");
 //const role = ref("")
 
+const apiUrl = process.env.apiUrl;
 const registrarUsuario = async () => {
   //console.log('API Base URL in request:', `${CONFIG.public.API_BASE_URL}usuarios/`);
   const { data, error } = await useFetch(
-    `${CONFIG.public.API_BASE_URL}usuarios/`,
+    `${apiUrl}usuarios/`,
     {
       method: "POST",
       body: {
