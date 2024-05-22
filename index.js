@@ -11,18 +11,18 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 // Configuración de CORS
-const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('No permitido por CORS'));
-    }
-  },
-  credentials: true, // Permite incluir cookies y encabezados de autenticación en las solicitudes
-};
-app.use(cors(corsOptions));
+// const whitelist = ['http://localhost:3001', 'https://massalud.onrender.com'];
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (!origin || whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('No permitido por CORS'));
+//     }
+//   },
+//   credentials: true, // Permite incluir cookies y encabezados de autenticación en las solicitudes
+// };
+app.use(cors());
 
 // Autenticación
 require('./utils/auth');
