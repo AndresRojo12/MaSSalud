@@ -169,7 +169,9 @@
 </template>
 
 <script setup>
-//import { useRuntimeConfig } from '#app';
+import { useRuntimeConfig, useFetch } from '#app';
+const config = useRuntimeConfig();
+const apiUrl = config.public.apiUrl;
 const CONFIG = useRuntimeConfig();
 console.log('API Base URL:', CONFIG.public.API_BASE_URL);
 
@@ -214,7 +216,6 @@ const email = ref("");
 const password = ref("");
 //const role = ref("")
 
-const apiUrl = process.env.apiUrl;
 const registrarUsuario = async () => {
   //console.log('API Base URL in request:', `${CONFIG.public.API_BASE_URL}usuarios/`);
   const { data, error } = await useFetch(
