@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware para parsear JSON
 app.use(express.json());
+app.options('*', cors());
 
 // Configuración de CORS
 const whitelist = ['https://massalud.onrender.com'];
