@@ -16,18 +16,18 @@ app.use(express.json());
 app.options('*', cors());
 
 // Configuración de CORS
-const whitelist = ['https://massalud.onrender.com'];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || whitelist.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('No permitido por CORS'));
-    }
-  },
-  credentials: true, // Permite incluir cookies y encabezados de autenticación en las solicitudes
-};
-app.use(cors(corsOptions));
+// const whitelist = ['https://massalud.onrender.com'];
+// const corsOptions = {
+//   origin: (origin, callback) => {
+//     if (!origin || whitelist.includes(origin)) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('No permitido por CORS'));
+//     }
+//   },
+//   credentials: true, // Permite incluir cookies y encabezados de autenticación en las solicitudes
+// };
+app.use(cors());
 
 // Servir archivos estáticos de la aplicación frontend (Nuxt.js)
 const nuxtDistPath = path.join(__dirname, './frontend/dist');
