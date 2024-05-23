@@ -14,7 +14,7 @@ async function sendConfirmationEmail(email, name) {
     <p>¡Hola ${name}!</p>
     <p>Te has registrado con éxito en nuestro sistema.</p>
     <p>Por favor, haz clic en el siguiente botón para confirmar tu registro:</p>
-    <a href="http://localhost:3000/paciente/inicio" style="display: inline-block; background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;">Aceptar</a>
+    <a href="https://massalud.onrender.com/auth/login" style="display: inline-block; background-color: #4CAF50; color: white; padding: 14px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;">Aceptar</a>
 `;
 
 
