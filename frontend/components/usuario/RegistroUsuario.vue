@@ -1,24 +1,37 @@
 <template>
   <div>
     <v-toolbar style="background-color: aqua">
-      <v-toolbar-title class="text-center text-md-start" style="flex: 1;">
-        REGISTRATE
-      </v-toolbar-title>
-
-      <v-btn @click="inicio" variant="text">Ir a Inicio</v-btn>
+      <v-divider class="ms-3" inset vertical></v-divider>
+      <v-toolbar-title
+        style="
+          margin-left: 45%;
+          font-size:25px;
+          font-family: &quot;Times New Roman&quot;, Times, serif;
+        "
+        >REGISTRATE</v-toolbar-title
+      >
+      <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
+      <v-toolbar-items>
+        <v-divider vertical></v-divider>
+        <v-btn @click="inicio" variant="text">Ir a Inicio</v-btn>
+      </v-toolbar-items>
     </v-toolbar>
-
-    <div >
+    <div style="display: flex;margin-top:1%; justify-content: center">
       <v-img
         src="../../util/article_7049_cover_es_ES.png"
-        class="mx-auto mb-4 mb-md-0"
-        style="max-width:40%;"
-      ></v-img>
-
-      <v-form class="mx-auto" style="max-width: 90%; width: 400px;">
-        <h1 class="text-center">Registro</h1>
+        style="max-width: 40%;
+        margin-right:10%;"
+      >
+        <template #sources>
+          <source srcset="../../util/article_7049_cover_es_ES.png" />
+        </template>
+      </v-img>
+      <v-form style="max-width: 45%">
+        <h1 style="text-align: center;
+        font-family: 'Times New Roman', Times, serif;">Registro</h1>
         <v-row>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="12" md="4" style="margin-top: 5%">
             <v-text-field
               v-model="name"
               :counter="10"
@@ -29,8 +42,7 @@
               required
             ></v-text-field>
           </v-col>
-
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="4" md="4" style="margin-top: 5%">
             <v-text-field
               v-model="lastName"
               :counter="10"
@@ -41,8 +53,7 @@
               required
             ></v-text-field>
           </v-col>
-
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4" style="margin-top: 5%">
             <v-text-field
               v-model="secondSurname"
               :rules="emailRules"
@@ -53,7 +64,7 @@
               required
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="8">
             <v-autocomplete
               v-model="tipDocument"
               :items="documentType"
@@ -64,8 +75,7 @@
               required
             ></v-autocomplete>
           </v-col>
-
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4">
             <v-text-field
               class="mx-auto"
               :counter="10"
@@ -75,7 +85,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4">
             <v-text-field
               v-model="expeditionDate"
               class="mx-auto"
@@ -85,7 +95,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4">
             <v-text-field
               v-model="birthdate"
               color="primary"
@@ -94,7 +104,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4">
             <v-text-field
               v-model="gender"
               color="primary"
@@ -102,7 +112,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="4">
             <v-text-field
               v-model="phone"
               color="primary"
@@ -110,7 +120,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col cols="8" md="8">
             <v-autocomplete
               v-model="ep"
               :items="eps"
@@ -119,7 +129,7 @@
               required
             ></v-autocomplete>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col>
             <v-text-field
               v-model="email"
               color="primary"
@@ -127,7 +137,7 @@
               variant="underlined"
             ></v-text-field>
           </v-col>
-          <v-col cols="12" md="4" class="mt-3">
+          <v-col>
             <v-text-field
               v-model="password"
               color="primary"
@@ -136,11 +146,14 @@
               type="password"
             ></v-text-field>
           </v-col>
-          <v-btn class="mt-4 mx-auto" style="background-color: aqua;" @click.prevent="registrarUsuario">
-            Completar Registro
-            <v-icon icon="mdi-chevron-right" end></v-icon>
-          </v-btn>
-      </v-row>
+        </v-row>
+        <v-btn
+          style="margin-left: 35%;background-color: aqua; margin-top: 5%;"
+          @click.prevent="registrarUsuario"
+        >
+          Completar Registro
+          <v-icon icon="mdi-chevron-right" end></v-icon>
+        </v-btn>
       </v-form>
     </div>
   </div>
@@ -248,41 +261,3 @@ const inicio = () => {
 }
 </script>
 
-<style scoped>
-.text-center {
-  text-align: center;
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
-.mt-4 {
-  margin-top: 1rem;
-}
-
-/* .d-flex {
-  display: flex;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.flex-md-row {
-  flex-direction: row;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.align-items-center {
-  align-items: center;
-} */
-</style>
