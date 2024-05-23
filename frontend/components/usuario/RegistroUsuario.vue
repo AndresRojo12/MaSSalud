@@ -8,7 +8,7 @@
       <v-btn @click="inicio" variant="text">Ir a Inicio</v-btn>
     </v-toolbar>
 
-    <div class="d-flex flex-column flex-md-row justify-center mt-4">
+    <div >
       <v-img
         src="../../util/article_7049_cover_es_ES.png"
         class="mx-auto mb-4 mb-md-0"
@@ -266,7 +266,7 @@ const inicio = () => {
   margin-top: 1rem;
 }
 
-.d-flex {
+/* .d-flex {
   display: flex;
 }
 
@@ -284,5 +284,5 @@ const inicio = () => {
 
 .align-items-center {
   align-items: center;
-}
+} */
 </style>
