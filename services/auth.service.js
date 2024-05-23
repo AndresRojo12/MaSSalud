@@ -43,10 +43,10 @@ class AuthService {
     }
     const payload = { sub: usuario.id };
     const token = jwt.sign(payload, config.jwtSecret, {expiresIn: '15min'});
-    const link = `http://localhost:3000/login/nueva_contrasena?token=${token}`;
+    const link = `https://massalud.onrender.com/login/nueva_contrasena?token=${token}`;
     await servicio.update(usuario.id, { recoveryToken: token });
     const mail = {
-      from: config.smtpEmail,
+      from: config.emailAdmin,
       to: `${usuario.email}`,
       subject: "Recuperación de contraseña",
       text: `¡Hola ${usuario.name}!`,
@@ -76,7 +76,7 @@ class AuthService {
       host: "smtp.gmail.com",
       secure: true,
       port: 465,
-      auth: { user: config.smtpEmail, pass: config.smtpPassword },
+      auth: { user: config.emailAdmin, pass: config.credentialCorreo },
     });
 
     await transporter.sendMail(infoMail);
