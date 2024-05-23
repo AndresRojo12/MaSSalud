@@ -12,10 +12,10 @@
       <v-img
         src="../../util/article_7049_cover_es_ES.png"
         class="mx-auto mb-4 mb-md-0"
-        style="max-width: 100%;"
+        style="max-width:40%;"
       ></v-img>
 
-      <v-form class="mx-auto" style="max-width: 100%;">
+      <v-form class="mx-auto" style="max-width: 90%; width: 400px;">
         <h1 class="text-center">Registro</h1>
         <v-row>
           <v-col cols="12" md="4" class="mt-3">
@@ -280,5 +280,9 @@ const inicio = () => {
 
 .justify-center {
   justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
 }
 </style>
